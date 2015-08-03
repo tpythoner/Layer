@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layer</title>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="layer.js"></script>
+    <link rel="stylesheet" href="layer.css">
+</head>
+<body>
+<button id="alert">alert</button>
+<button id="confirm">confirm</button>
+</body>
+<script>
+$('#alert').on('click', function() {
+    Layer.alert('alert弹窗');
+});
+
+$('#confirm').on('click', function() {
+    Layer.confirm('是否确认转账?', function(flag) {
+        console.log(flag);
+    });
+});
+</script>
+</html>
