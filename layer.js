@@ -1,25 +1,32 @@
 function Layer() {
     this.name = 'Layer';
     this.flag = -1;
+    this.alert = -1;
 }
 
 // common alert
-Layer.prototype.alert = function(msg) {
+Layer.prototype.alert = function(msg, callback) {
     $('body').append('<div class="box_bg"></div><div class="box_common"><p>'+msg+'</p><div class="box_btn"><a href="javascript:;" class="yes middle">确定</a></div><a href="javascript:;" class="box_close">X</a></div>');
     // 点击背景隐藏
     $('.box_bg').on('click', function() {
+        this.alert = 0;
         $('.box_bg').remove();
         $('.box_common').remove();
+        return callback(this.alert);
     });
     // 点击关闭按钮隐藏
     $('.box_close').on('click', function() {
+        this.alert = 0;
         $('.box_bg').remove();
         $('.box_common').remove();
+        return callback(this.alert);
     });
     // 点击确定按钮隐藏
     $('.yes.middle').on('click', function() {
+        this.alert = 1;
         $('.box_bg').remove();
         $('.box_common').remove();
+        return callback(this.alert);
     });
 }
 
