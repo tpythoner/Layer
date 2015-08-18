@@ -12,21 +12,27 @@ Layer.prototype.alert = function(msg, callback) {
         this.alert = 0;
         $('.box_bg').remove();
         $('.box_common').remove();
-        return callback(this.alert);
+		if (undefined != callback) {
+			return callback(this.alert);
+		}
     });
     // 点击关闭按钮隐藏
     $('.box_close').on('click', function() {
         this.alert = 0;
         $('.box_bg').remove();
         $('.box_common').remove();
-        return callback(this.alert);
+		if (undefined != callback) {
+			return callback(this.alert);
+		}
     });
     // 点击确定按钮隐藏
     $('.yes.middle').on('click', function() {
         this.alert = 1;
         $('.box_bg').remove();
         $('.box_common').remove();
-        return callback(this.alert);
+		if (undefined != callback) {
+			return callback(this.alert);
+		}
     });
 }
 
@@ -39,31 +45,38 @@ Layer.prototype.confirm = function(msg, callback) {
             this.flag = 0;
             $('.box_bg').remove();
             $('.box_common').remove();
-            return callback(this.flag);
+			if (undefined != callback) {
+				return callback(this.flag);
+			}
         });
         // 点击关闭按钮隐藏
         $('.box_close').on('click', function() {
             this.flag = 0;
             $('.box_bg').remove();
             $('.box_common').remove();
-            return callback(this.flag);
+			if (undefined != callback) {
+				return callback(this.flag);
+			}
         });
         // 点击否按钮隐藏
         $('.no.left').on('click', function() {
             this.flag = 0;
             $('.box_bg').remove();
             $('.box_common').remove();
-            return callback(this.flag);
+			if (undefined != callback) {
+				return callback(this.flag);
+			}
         });
         // 点击是按钮隐藏
         $('.yes.right').on('click', function() {
             this.flag = 1;
             $('.box_bg').remove();
             $('.box_common').remove();
-            return callback(this.flag);
+			if (undefined != callback) {
+				return callback(this.flag);
+			}
         });
 
-        // return callback('admin');
 
 }
 
